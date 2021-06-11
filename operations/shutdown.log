@@ -1,0 +1,87 @@
+         Stopping User Manager for UID 1000...
+[  OK  ] Stopped target Sound Card.
+         Stopping Session c1 of user pi.
+         Stopping Authenticate and Authorize Users to Run Privileged Tasks...
+[  OK  ] Stopped target Timers.
+[  OK  ] Stopped target Graphical Interface.
+[  OK  ] Stopped target Multi-User System.
+         Stopping brcm_patchram_plus...
+         Stopping The ctrl service for ICopy..         Stopping Serial Getty on ttyS1...
+         Stopping Session c2 of user pi.
+         Stopping LSB: disk temperature monitoring daemon...
+         Stopping LSB: sync_ntp_rtc...
+         Stopping LSB: Start NTP daemon...
+         Stopping Regular background program processing daemon...
+[  OK  ] Stopped Daily Cleanup of Temporary Directories.
+         Stopping Save/Restore Sound Card State...
+[  OK  ] Stopped Daily apt upgrade and clean activities.
+[  OK  ] Stopped Daily apt download activities.
+[  OK  ] Stopped target System Time Synchronized.
+[  OK  ] Stopped Regular background program processing daemon.
+[  OK  ] Stopped OpenBSD Secure Shell server.
+[  OK  ] Stopped Authenticate and Authorize Users to Run Privileged Tasks.
+[  OK  ] Stopped Serial Getty on ttyS1.
+[  OK  ] Stopped Getty on tty1.
+[  OK  ] Stopped User Manager for UID 1000.
+[  OK  ] Stopped Session c1 of user pi.
+[  OK  ] Stopped brcm_patchram_plus.
+[  OK  ] Stopped LSB: select system audio output at first boot.
+[  OK  ] Stopped Session c2 of user pi.
+[  OK  ] Stopped LSB: sync_ntp_rtc.
+[  OK  ] Stopped Save/Restore Sound Card State.
+[  OK  ] Stopped The ctrl service for ICopy.
+[  OK  ] Stopped LSB: disk temperature monitoring daemon.
+[  OK  ] Stopped LSB: Set the CPU Frequency Scaling governor to "ondemand".
+[  OK  ] Stopped LSB: Start NTP daemon.
+[  OK  ] Removed slice User Slice of pi.
+         Stopping Login Service...
+[  OK  ] Removed slice system-getty.slice.
+[  OK  ] Stopped /etc/rc.local Compatibility.
+[  OK  ] Stopped target Network is Online.
+[  OK  ] Stopped Network Manager Wait Online.
+[  OK  ] Removed slice system-serial\x2dgetty.slice.
+         Stopping Permit User Sessions...
+[  OK  ] Stopped target Network.
+         Stopping Network Manager...
+         Stopping Raise network interfaces...
+[  OK  ] Stopped Login Service.
+[  OK  ] Stopped Permit User Sessions.
+[  OK  ] Stopped target Remote File Systems.
+[  OK  ] Stopped target Remote File Systems (Pre).
+[  OK  ] Stopped Network Manager.
+[  OK  ] Stopped Raise network interfaces.
+         Stopping D-Bus System Message Bus...
+[  OK  ] Stopped D-Bus System Message Bus.
+[  OK  ] Stopped target Basic System.
+[  OK  ] Stopped target Slices.
+[  OK  ] Removed slice User and Session Slice.
+[  OK  ] Stopped target Paths.
+[  OK  ] Stopped Forward Password Requests to Wall Directory Watch.
+[  OK  ] Stopped Dispatch Password Requests to Console Directory Watch.
+[  OK  ] Stopped target Sockets.
+[  OK  ] Closed D-Bus System Message Bus Socket.
+[  OK  ] Stopped target System Initialization.
+         Stopping Load/Save Screen Backlight...tness of backlight:fb_st7789v...
+         Stopping Load/Save Random Seed...
+[  OK  ] Stopped target Encrypted Volumes.
+[  OK  ] Stopped target Swap.
+[  OK  ] Stopped Apply Kernel Variables.
+[  OK  ] Stopped Load Kernel Modules.
+[  OK  ] Stopped Create Volatile Files and Directories.
+[  OK  ] Stopped target Local File Systems.
+         Unmounting /mnt/upan...
+         Unmounting /run/user/1000...
+         Unmounting /boot...
+[  OK  ] Stopped Load/Save Screen Backlight Brightness of backlight:fb_st7789v.
+[  OK  ] Stopped Load/Save Random Seed.
+[  OK  ] Unmounted /run/user/1000.
+[  OK  ] Unmounted /boot.
+[  OK  ] Removed slice system-systemd\x2dbacklight.slice.
+[  OK  ] Unmounted /mnt/upan.
+[  OK  ] Reached target Unmount All Filesystems.
+[  OK  ] Stopped target Local File Systems (Pre).
+[  OK  ] Stopped Create Static Device Nodes in /dev.
+[  OK  ] Stopped Remount Root and Kernel File Systems.
+[  OK  ] Reached target Shutdown.
+[80288.611892] systemd-journald[228]: Failed to send WATCHDOG=1 notification message: Connection refused
+[80288.856238] reboot: System halted

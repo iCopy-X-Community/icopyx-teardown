@@ -1,0 +1,14 @@
+
+[Unit]
+Description=The ctrl service for ICopy
+After=network.target
+
+[Service]
+User=pi
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/sudo /usr/bin/xinit /etc/icopy.d/ipk_starter.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
