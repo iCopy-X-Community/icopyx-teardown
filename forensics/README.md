@@ -11,18 +11,6 @@ Finding more information than in the intended pieces of software...
     * xinit /home/pi/ipk_app_main/app.py
 * `userdata/root/home/pi/.bash_history`
 * `userdata/root/etc/systemd/system/serial-getty@ttyS0.service.d/autologin.conf` not present anymore
-
-
-
-from JSON file J://PM3-RRG-Compiled-20200921(手持机私有固件)-改读卡阈值保留嗅探阈值临时测试(手持机公版)/CLIENT_X86/.proxmark3/preferences.json
-from JSON file J://PM3-RRG-Compiled-20200921(手持机私有固件)-改读卡阈值保留嗅探阈值临时测试/.proxmark3/preferences.json
-from JSON file J://PM3-RRG-Compiled-20200921(手持机私有固件)-改读卡阈值保留嗅探阈值临时测试(手持机公版)/.proxmark3/preferences.json
-from JSON file J://PM3-RRG-Compiled-20200921(手持机私有固件)-改阈值改嗅探Q值临时测试/.proxmark3/preferences.json
-
-
-
-
-
 * `ICOPY-X/Backup_of_CLIENT_X86.zip -> CLIENT_X86/.proxmark3/logs/` show logs during development, including the path to the preferences file, e.g.:
   * J:/我的文档/RFID监听调试器/固件版本列表/固件直刷/PM3-RRG-Compiled-20200921(手持机私有固件)-改读卡阈值保留嗅探阈值临时测试(手持机公版)/CLIENT_X86/.proxmark3/preferences.json
   == J:/My document/RFID listener/firmware version list/firmware direct brush/PM3-RRG-Compiled-20200921 (Handheld Private Firmware) - Recovering Card Threshold Retention Sniff Threshold Temporary Test (Handheld Genuine)/Client_x86/.proxmark3/preferences.json

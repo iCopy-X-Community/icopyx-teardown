@@ -113,7 +113,7 @@ Icons for the screen.
 
 ### Diffing .ipk
 
-Comparing two .ipk for two different serials:
+Comparing two .ipk for two different serials, the only different files are:
 
 * lib/hficlass.so
 * lib/version.so

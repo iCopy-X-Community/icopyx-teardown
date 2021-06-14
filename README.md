@@ -1,9 +1,8 @@
-# iCopy-X Teardown
+# iCopy-X Teardown, *Ongoing*
 
 Some *ongoing* notes trying to understand what the iCopy-X is made of, what's the current state and what could be done once the software gets fully open-sourced.
 
-<img src="hardware/imgs/Website-Photo.png" width=300 />
-<img src="hardware/imgs/wild-test.jpg" width=300 />
+<img src="hardware/imgs/Website-Photo.png" width=300 /> => <img src="hardware/imgs/wild-test.jpg" width=300 />
 
 
 ## Official links

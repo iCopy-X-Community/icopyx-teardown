@@ -19,8 +19,9 @@
 dd if=flashdump.bin bs=$((0x2000)) skip=1 of=fullimage.bin
 dd if=flashdump.bin bs=$((0x2000)) count=1 of=bootrom.bin
 ```
-=> [bootrom.bin](bootrom.bin)
-=> [fullimage.bin](fullimage.bin)
+
+*  [bootrom.bin](bootrom.bin)
+* [fullimage.bin](fullimage.bin)
 
 ## FPGA
 
@@ -41,9 +42,9 @@ dd if=flashdump.bin bs=1 skip=$((0x35D36)) of=fpga_all.bit.z
 ./fpga_compress -d fpga_all.bit.z fpga_lf.bit fpga_hf.bit fpga_felica.bit
 uncompressed 303818 input bytes to 218592 output bytes
 ```
-=> [fpga_lf.bit](fpga_lf.bit) 88 bytes
-=> [fpga_hf.bit](fpga_hf.bit) 72753 bytes
-=> [fpga_felica.bit](fpga_felica.bit) 99 bytes
+* [fpga_lf.bit](fpga_lf.bit) 88 bytes
+* [fpga_hf.bit](fpga_hf.bit) 72753 bytes
+* [fpga_felica.bit](fpga_felica.bit) 99 bytes
 
 `fpga_lf.bit` and `fpga_felica.bit` are empty and probably unused. As the FPGA is larger than the usual Proxmark3 FPGA, all functions are available in the `fpga_hf.bit`.
 
@@ -112,8 +113,9 @@ Converting them to compare them with the extracted images:
 arm-none-eabi-objcopy -O binary bootrom.elf bootrom.bin
 arm-none-eabi-objcopy -O binary fullimage.elf fullimage.bin
 ```
-=> [bootrom.bin](client_windows_tzwps-exe/bootrom.bin)
-=> [fullimage.bin](client_windows_tzwps-exe/fullimage.bin)
+
+* [bootrom.bin](client_windows_tzwps-exe/bootrom.bin)
+* [fullimage.bin](client_windows_tzwps-exe/fullimage.bin)
 
 
 ## Compiling our client

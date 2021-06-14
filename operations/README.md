@@ -97,7 +97,8 @@ sd 2:0:0:0: [sda] Attached SCSI removable disk
 
 Mass Storage makes ICOPY-X partition visible.
 
-`/dev/ttyACM0` allows to communicate directly with the Proxmark3. It goes via a `socat` bridge in the NanoPi NEO. It is twice slower than a regular Proxmark3.
+`/dev/ttyACM0` allows to communicate directly with the Proxmark3. It is twice slower than a regular Proxmark3.
+It goes via a `socat` bridge in the NanoPi NEO:
 
 ```
 /bin/sh -c sudo socat /dev/ttyGS0,raw,echo=0 /dev/ttyACM0,raw,echo=0
@@ -111,7 +112,7 @@ On NanoPi NEO pins rx1 and tx1 (UART1 3v3) at 115200 bauds, a console is availab
 
 <img src="imgs/uart1.png" width=600 />
 
-Internally, it corresponds to /dev/ttyS1
+Internally, it corresponds to `/dev/ttyS1`
 
 ## Boot & Shutdown
 

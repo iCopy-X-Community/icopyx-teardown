@@ -7,8 +7,8 @@ Open it from the top first.
 * Casing with a speaker in the top part
 * Battery LiPo 604060 3.7V 7.4Wh 2000mAh
 * a [NanoPi NEO V1.4](../nanopi-neo/README.md) PCB
-<img src="imgs/nanopineo-front.png" width=360 />
-<img src="imgs/nanopineo-back.png" width=300 />
+
+<img src="imgs/nanopineo-front.png" width=360 /><img src="imgs/nanopineo-back.png" width=300 />
 
 * an antenna PCB
   * aspect quite similar to RDV4 antennas
@@ -18,8 +18,8 @@ Open it from the top first.
   * `HF_ANT_1.9uH±3%`
   * `Dual ANT V6.1.4`
   * `Center Freq:125K&13.56M`
-<img src="imgs/antenna-front.png" width=300 />
-<img src="imgs/antenna-back.png" width=300 />
+
+<img src="imgs/antenna-front.png" width=300 /><img src="imgs/antenna-back.png" width=300 />
 
 * a green multi-function PCB
   * `ICOPY MAIN V1.5 D-2110`
@@ -31,9 +31,8 @@ Open it from the top first.
   * Inputs driver
   * STM32F103C8T6, still to figure out
 
-<img src="imgs/green-front1.png" width=300 />
+<img src="imgs/green-front1.png" width=300 /><img src="imgs/green-back.png" width=300 />
 <img src="imgs/green-front2.png" width=300 />
-<img src="imgs/green-back.png" width=300 />
 
 ## Interconnections
 

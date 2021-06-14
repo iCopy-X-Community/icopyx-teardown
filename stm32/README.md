@@ -37,4 +37,4 @@ st-flash 1.4.0-52-ge059ea7
 $ st-flash read sram.bin 0x20000000 0x5000
 ```
 
-=> [sram_0x20000000_0x5000.bin](sram_0x20000000_0x5000.bin)
+* [sram_0x20000000_0x5000.bin](sram_0x20000000_0x5000.bin)
