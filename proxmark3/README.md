@@ -48,6 +48,8 @@ uncompressed 303818 input bytes to 218592 output bytes
 
 `fpga_lf.bit` and `fpga_felica.bit` are empty and probably unused. As the FPGA is larger than the usual Proxmark3 FPGA, all functions are available in the `fpga_hf.bit`.
 
+This requires `fpga_compress` to be modified to allow larger images (`#define FPGA_CONFIG_SIZE 72864L`).
+
 Still, the three images are created, interleaved and compressed with `fpga_compress`, which ends up in larger compressed image...
 
 * their `fpga_all.bit.z`: 27772 bytes

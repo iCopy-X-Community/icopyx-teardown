@@ -27,3 +27,10 @@ Finding more information than in the intended pieces of software...
 * userdata/root/usr/sbin/pcmode -> /home/pi/PC-mode ?
 * userdata/root/usr/bin/pcmode  -> /home/pi/app/script/PC-mode ?
 
+* paths in Cython app  
+  /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libgcc  
+  /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/glibc.git~release~2.25~master  
+  C:\Users\usertest\AppData\Local\Temp\tmpXXXXXXXX  
+  d:/dxl/arm-gcc/bin/../arm-linux-gnueabihf  
+  D:\DXL\arm-gcc\include_py/objimpl.h  
+  E:\\PM3\\proxmark3-20201026

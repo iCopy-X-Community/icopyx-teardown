@@ -74,6 +74,10 @@ cdc_acm 1-2.3:2.0: ttyACM0: USB ACM device
 
 So it appears briefly as Mass Storage under VID/PID 0525:a4a5 then as UART bridge under VID/PID 0525:a4a7
 
+## Interface
+
+On some screens, e.g. when reading a tag, Proxmark3 console output can be displayed by pressing *Right* button. Font size can be modified by pressing the 2 top unlabeled buttons.
+
 ## PC-Mode
 
 ```
@@ -108,7 +112,7 @@ It goes via a `socat` bridge in the NanoPi NEO:
 
 ### Connect
 
-On NanoPi NEO pins rx1 and tx1 (UART1 3v3) at 115200 bauds, a console is available (pi/pi, fa/fa and root/fa, sudo is also available)
+On NanoPi NEO pins rx1 and tx1 (UART1 3v3) at 115200 bauds, the Debug console is available (pi/pi, fa/fa and root/fa, sudo is also available)
 
 <img src="imgs/uart1.png" width=600 />
 

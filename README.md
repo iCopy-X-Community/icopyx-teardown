@@ -37,6 +37,7 @@ It contains an additional Python wrapper to provide a user interface with LCD an
 * Proxmark3 runs a modified version of RRG/Iceman repo circa September 2020
   * ARM firmware got modified at least to deal with the new FPGA image and to remove version information
   * FPGA image got modified to merge lf, hf and felica images
+  * `fpga_compress` got modified to allow larger image (`#define FPGA_CONFIG_SIZE 72864L`)
   * client for NanoPi got modified at least to return error codes and to remove version information
   * client for Windows got modified at least to return error codes and to remove version information
 
@@ -73,5 +74,4 @@ It's quite a pity, because it could be a wonderful tool in the same vein as the 
 ## Desired changes
 
 * Open the source code such that it could be properly maintained up to date with the RRG/Iceman and its GUI maintained properly as well
-* Document how to access the Proxmark3 output on the LCD as it has been demonstrated in marketing videos
-* Bind the UART-to-USB bridge to a Linux console when in non-PC-Mode, it's much more convenient than using the inner UART1
+* Bind the UART-to-USB bridge to the Linux Debug console when in non-PC-Mode, it's much more convenient than using the inner UART1

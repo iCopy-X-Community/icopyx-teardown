@@ -60,8 +60,18 @@ Actually only 14 pins are used:
 
 #### 4-pin FPC
 
-For USB connection with the host via the USB-C connector on the green PCB.
+For USB connection with the host via the USB-C connector on the green PCB, wired to the NanoPi NEO Micro USB footprint.
 
+|Green PCB|NanoPi NEO MicroUSB|Comments|
+|-|-|-|
+||Shield|GND
+||1|GND
+|4|2|CC/ID
+|2|3|D+
+|3|4|D-
+|1|5|VBus (*)
+
+(*)  Not directly the VBus of USB-C, it goes via some regulator
 
 ### Antenna PCB <> Green PCB
 

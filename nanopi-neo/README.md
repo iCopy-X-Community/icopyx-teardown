@@ -44,6 +44,20 @@ Version comparison:
 
 Probably a `nanopi-neo_sd_friendlycore-xenial_4.14_armhf_20191219.img` but that image is not available anymore on the manufacturer site.
 
+Diffs:
+* In `filesystem_icopy-x/boot/uEnv.txt` Debug port is moved to `/dev/ttyS1` (which is on rx1/tx1 pins, see [Operations](../operations/README.md#uart1))
+```diff
+-debug_port=ttyS0,115200
++debug_port=ttyS1,115200
+```
+* In `*dtb` Sitronix ST7789V LCD Driver is activated (disabled->okay)
+* In `rootfs.cpio.z` -> `init`
+```diff
+-[ -d /tmp ] || mkdir -m 1777 /tmp
++[ -d /tmp ] || mkdir /tmp
+```
+This change is probably just a fix in the later nanopi-neo_sd_friendlycore-xenial_4.14_armhf_20210425
+
 Resources:
 
 * https://wiki.friendlyarm.com/wiki/index.php/Building_U-boot_and_Linux_for_H5/H3/H2%2B
@@ -52,7 +66,7 @@ Resources:
 
 ext4
 
-rootfs seems to be an out-of-the-box image for NanoPi NEO: *rootfs_friendlycore_4.14* except for kernel modules.
+rootfs seems to be an out-of-the-box image for NanoPi NEO: [*rootfs_friendlycore_4.14*](https://drive.google.com/file/d/1mFQ5zVdXpZ57ej2zSXdISC--VaORczmb/view?usp=sharing) except for kernel modules.
 
 Probably a `nanopi-neo_sd_friendlycore-xenial_4.14_armhf_20191219.img` but that image is not available anymore on the manufacturer site.
 
