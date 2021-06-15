@@ -38,7 +38,7 @@ It contains an additional Python wrapper to provide a user interface with LCD an
   * ARM firmware got modified at least to deal with the new FPGA image and to remove version information
   * FPGA image got modified to merge lf, hf and felica images
   * `fpga_compress` got modified to allow larger image (`#define FPGA_CONFIG_SIZE 72864L`)
-  * client for NanoPi got modified at least to return error codes and to remove version information
+  * client for NanoPi got modified at least to return error codes, to deactivate history and logs and to remove version information
   * client for Windows got modified at least to return error codes and to remove version information
 
 None of the ARM, FGPA and clients source code has been released, which is a violation of their GPL license and disrespectful towards the people who continuously improved the code during last 15 years.

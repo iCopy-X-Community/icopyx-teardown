@@ -108,6 +108,8 @@ It goes via a `socat` bridge in the NanoPi NEO:
 /bin/sh -c sudo socat /dev/ttyGS0,raw,echo=0 /dev/ttyACM0,raw,echo=0
 ```
 
+It is not identified as a Proxmark3 so if you're using another client than their official one, you can't use the `pm3` script but you have to tell explicitly your client to use the right port, cf [Compiling our client](../proxmark3/README.md#compiling-our-client) section.
+
 ## UART1
 
 ### Connect
@@ -172,4 +174,52 @@ app.py main nikola res lib pm3
 >>> from lib import games
 >>> str(inspect.signature(games.GreedySnake))
 "(canvas, block_size=10, default_len=3, default_xy=(28, 129), default_border=(4, 40, 240, 240), default_direction='UP')"
+```
+
+## Install packages
+
+```
+apt-cache show strace | egrep '(Depends|Filename)'
+Depends: libc6 (>= 2.15)
+Filename: pool/main/s/strace/strace_4.11-1ubuntu3_armhf.deb
+# Now from host:
+# wget http://ports.ubuntu.com/pool/main/s/strace/strace_4.11-1ubuntu3_armhf.deb
+# => ICOPY-X
+sudo dpkg -i /mnt/upan/packages/strace_4.11-1ubuntu3_armhf.deb
+
+```
+## Trace proxmark3 calls
+
+First install strace as seen above
+
+```
+strace -p$(pgrep proxmark3) -s9999 -e write|sed -u 's/^[^"]*"//;s/"[^"]*$//;s/\\n$//;s/\\n/\n/g;s/\\t/\t/g;s/\\r/\r/g'
+strace: Process 1234 attached
+```
+Now whenever `app.py` executes commands with the `proxmark3` client, we'll see them as if it was our client.
+```
+[usb|script] pm3 --> hf 14a info
+
+Nikola.D: 0
+[usb|script] pm3 --> lf sea
+
+[=] NOTE: some demods output possible binary
+[=] if it finds something that looks like a tag
+[=] False Positives ARE possible
+[=] 
+[=] Checking for known tags...
+[=] 
+[+] Indala - len 64, Raw: a0000000a0002021
+[+] Fmt 26 FC: 1 Card: 2 checksum: 01
+[+] Possible de-scramble patterns
+[+]     Printed     | __0000__ [0x0]
+[+]     Internal ID | 536879137
+[+]     Heden-2L    | 320
+
+[+] Valid Indala ID found!
+
+Couldn't identify a chipset
+
+Nikola.D: 0
+
 ```
