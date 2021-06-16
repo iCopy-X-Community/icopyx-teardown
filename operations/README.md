@@ -223,3 +223,33 @@ Couldn't identify a chipset
 Nikola.D: 0
 
 ```
+
+Diagnosis:
+```
+hf tune
+lf tune
+lf sea
+mem spiffs load f /tmp/test_pm3_mem.nikola o test_pm3_mem.nikola
+mem spiffs wipe
+```
+
+## Trace /dev/ttyS0
+
+First install strace as seen above
+
+```
+echo "Searching process attached to /dev/ttyS0..."
+for p in $(pgrep python3); do
+  for l in $(sudo ls /proc/$p/fd/); do
+    if sudo readlink /proc/$p/fd/$l|grep -q /dev/ttyS0; then
+      P=$p
+      FD=$l
+      break
+    fi
+  done
+done
+echo "Tracing FD $FD of process $P"
+sudo strace -p$P -s9999 -e trace=read,write 2>&1|egrep -u "(read|write)\($FD,"
+```
+
+Ongoing tests, no traffic so far.
