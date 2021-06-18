@@ -261,9 +261,11 @@ Ongoing tests, no traffic so far.
 
 ## Wi-Fi
 
-One can add a USB-A female socket wired to the NanoPi NEO and use it to plug netword adapters.
+One can add a USB-A female socket wired to the NanoPi NEO and use it to plug network adapters.
 
 <img src="imgs/nanopi_usb.jpg" width=600 />
+
+Tested with a RT2870 dongle.
 
 <img src="imgs/wifi_ssh.png" width=600 />
 
