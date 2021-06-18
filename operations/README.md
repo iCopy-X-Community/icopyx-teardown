@@ -258,3 +258,17 @@ sudo strace -p$P -s9999 -e trace=read,write 2>&1|egrep -u "(read|write)\($FD,"
 ```
 
 Ongoing tests, no traffic so far.
+
+## Wi-Fi
+
+One can add a USB-A female socket wired to the NanoPi NEO and use it to plug netword adapters.
+
+<img src="imgs/nanopi_usb.jpg" width=600 />
+
+<img src="imgs/wifi_ssh.png" width=600 />
+
+See [here](https://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO#USB_WiFi) which Wi-Fi chipsets are working out of the box.
+
+Cheap USB-Ethernet dongles based on Realtek RTL8153 or ASIX AX88772A work fine too.
+
+I believe soldering an Ethernet female socket on the NanoPi NEO Ethernet pinouts would work too.
