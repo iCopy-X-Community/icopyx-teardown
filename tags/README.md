@@ -53,10 +53,10 @@ an iClass Elite locked with password `2020666666668888`
 
 What it does when making a copy, here itself: (beware, old proxmark3 syntax)
 ```
-hf iclass rdbl b 1 k AFA785A7DAB33378
-hf iclass rdbl b 1 k AFA785A7DAB33378
-hf iclass rdbl b 1 k 2020666666668888
-hf iclass rdbl b 1 k 2020666666668888 e
+hf iclass rdbl b 01 k AFA785A7DAB33378
+hf iclass rdbl b 01 k AFA785A7DAB33378
+hf iclass rdbl b 01 k 2020666666668888
+hf iclass rdbl b 01 k 2020666666668888 e
 hf iclass info
 hf iclass dump k 2020666666668888 f /mnt/upan/dump/iclass/Iclass-Elite_2059A702F8FF12E0_1 e
 
@@ -72,11 +72,36 @@ hf iclass wrbl b 0c d FFFFFFFFFFFFFFFF k 2020666666668888 e
 hf iclass wrbl b 0d d FFFFFFFFFFFFFFFF k 2020666666668888 e
 hf iclass wrbl b 0e d FFFFFFFFFFFFFFFF k 2020666666668888 e
 hf iclass wrbl b 0f d FFFFFFFFFFFFFFFF k 2020666666668888 e
-hf iclass wrbl b 01 d FFFFFFFFFFFFFFFF k 2020666666668888 e
-[-] Writing failed
+hf iclass wrbl b 10 d FFFFFFFFFFFFFFFF k 2020666666668888 e
+hf iclass wrbl b 11 d FFFFFFFFFFFFFFFF k 2020666666668888 e
+hf iclass wrbl b 12 d FFFFFFFFFFFFFFFF k 2020666666668888 e
+hf iclass calcnewkey o 2020666666668888 n 2020666666668888 ee
+hf iclass wrbl b 03 d 0000000000000000 k 2020666666668888 e
+hf iclass rdbl b 01 k 2020666666668888 e
+hf iclass rdbl b 06 k 2020666666668888 e
+hf iclass rdbl b 07 k 2020666666668888 e
+hf iclass rdbl b 08 k 2020666666668888 e
+hf iclass rdbl b 09 k 2020666666668888 e
+hf iclass rdbl b 0a k 2020666666668888 e
+hf iclass rdbl b 0b k 2020666666668888 e
+hf iclass rdbl b 0c k 2020666666668888 e
+hf iclass rdbl b 0d k 2020666666668888 e
+hf iclass rdbl b 0e k 2020666666668888 e
+hf iclass rdbl b 0f k 2020666666668888 e
+hf iclass rdbl b 10 k 2020666666668888 e
+hf iclass rdbl b 11 k 2020666666668888 e
+hf iclass rdbl b 12 k 2020666666668888 e
 ```
-Same bug as for [iCL](#icl) ?
 
+Note that FW 1.0.3 is buggy, FW 1.0.7 is working fine
+
+To reuse an iCopy-X iCE, it must be set back to the initial key, e.g.
+
+```
+hf iclass calcnewkey --old AFA785A7DAB33378 --new 2020666666668888 --elite2
+Xor div key......... B3 56 7D DF 3E 64 E6 D7
+hf iclass wrbl -b 3 -d B3567DDF3E64E6D7 -k AFA785A7DAB33378 --elite
+```
 ## iCL
 
 an iClass Legacy locked with password `2020666666668888`
@@ -126,11 +151,13 @@ an iClass Legacy locked with password `2020666666668888`
 [+]     Card type.... PicoPass 2K
 ```
 
-What it does when making a copy, here a virgin iClass Legacy: (beware, old proxmark3 syntax)
+What it does when making a copy, here itself: (beware, old proxmark3 syntax)
 ```
-hf iclass rdbl b 1 k AFA785A7DAB33378
+hf iclass rdbl b 01 k AFA785A7DAB33378
+hf iclass rdbl b 01 k AFA785A7DAB33378
+hf iclass rdbl b 01 k 2020666666668888
 hf iclass info
-hf iclass dump k AFA785A7DAB33378 f /mnt/upan/dump/iclass/Iclass-Legacy_CBBD1102F9FF12E0_1
+hf iclass dump k 2020666666668888 f /mnt/upan/dump/iclass/Iclass-Legacy_8071A702F8FF12E0_1
 
 # swapping cards
 
@@ -144,10 +171,36 @@ hf iclass wrbl b 0c d FFFFFFFFFFFFFFFF k 2020666666668888
 hf iclass wrbl b 0d d FFFFFFFFFFFFFFFF k 2020666666668888
 hf iclass wrbl b 0e d FFFFFFFFFFFFFFFF k 2020666666668888
 hf iclass wrbl b 0f d FFFFFFFFFFFFFFFF k 2020666666668888
-hf iclass wrbl b 01 d FFFFFFFFFFFFFFFF k 2020666666668888
-[-] Writing failed
+hf iclass wrbl b 10 d FFFFFFFFFFFFFFFF k 2020666666668888
+hf iclass wrbl b 11 d FFFFFFFFFFFFFFFF k 2020666666668888
+hf iclass wrbl b 12 d FFFFFFFFFFFFFFFF k 2020666666668888
+hf iclass calcnewkey o 2020666666668888 n 2020666666668888
+hf iclass wrbl b 03 d 0000000000000000 k 2020666666668888
+hf iclass rdbl b 01 k 2020666666668888
+hf iclass rdbl b 06 k 2020666666668888
+hf iclass rdbl b 07 k 2020666666668888
+hf iclass rdbl b 08 k 2020666666668888
+hf iclass rdbl b 09 k 2020666666668888
+hf iclass rdbl b 0a k 2020666666668888
+hf iclass rdbl b 0b k 2020666666668888
+hf iclass rdbl b 0c k 2020666666668888
+hf iclass rdbl b 0d k 2020666666668888
+hf iclass rdbl b 0e k 2020666666668888
+hf iclass rdbl b 0f k 2020666666668888
+hf iclass rdbl b 10 k 2020666666668888
+hf iclass rdbl b 11 k 2020666666668888
+hf iclass rdbl b 12 k 2020666666668888
 ```
-I guess it was supposed to write to block 0x10, not 0x01 :( Maybe that's why there is a firmware update being rolled out...
+
+Note that FW 1.0.3 is buggy, FW 1.0.7 is working fine
+
+To reuse an iCopy-X iCL, it must be set back to the initial key, e.g.
+
+```
+hf iclass calcnewkey --old AFA785A7DAB33378 --new 2020666666668888
+Xor div key......... 1E 1E 03 6C C9 5A 76 4E 
+hf iclass wrbl -b 3 -d 1E1E036CC95A764E -k AFA785A7DAB33378
+```
 
 ## ICODE
 

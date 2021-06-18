@@ -124,6 +124,11 @@ Internally, it corresponds to `/dev/ttyS1`
 
 cf [boot.log](boot.log) and [shutdown.log](shutdown.log)
 
+```
+cat /proc/cmdline 
+console=ttyS1,115200 earlyprintk root=/dev/mmcblk0p2 rootfstype=ext4 rw rootwait fsck.repair=yes panic=10 fbcon=map:0  data=/dev/mmcblk0p3 snd-soc-core.pmdown_time=3600000
+```
+
 ## Mount
 physical partitions:
 ```
