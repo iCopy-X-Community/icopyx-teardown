@@ -273,7 +273,7 @@ Sniffing RX0 & TX0 with a logic analyzer
 < BOARD: nanopi-neo\r\n
 < starting USB...\r\n
 < No controllers found\r\n
-< Hit any key to stop autoboot:  2 '8''8''8' 1 '8''8''8' 0 \r\n
+< Hit any key to stop autoboot:  2 \b\b\b 1 \b\b\b 0 \r\n
 < reading boot.scr\r\n
 < 1478 bytes read in 18 ms (80.1 KiB/s)\r\n
 < ## Executing script at 43100000\r\n
