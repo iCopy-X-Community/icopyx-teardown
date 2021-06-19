@@ -269,7 +269,7 @@ Tested with a RT2870 dongle.
 
 <img src="imgs/wifi_ssh.png" width=600 />
 
-See [here](https://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO#USB_WiFi) which Wi-Fi chipsets are working out of the box.
+See [here](https://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO#USB_WiFi) which Wi-Fi chipsets are working out of the box and how to use Network Manager from the command line.
 
 Cheap USB-Ethernet dongles based on Realtek RTL8153 or ASIX AX88772A work fine too.
 
