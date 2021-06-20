@@ -383,6 +383,34 @@ Sniffing RX0 & TX0 with a logic analyzer
 > Bye!\r\n
 ```
 
+Some found commands:
+
+```
+charge
+fillscreen + param?
+fillsquare + param?
+givemelcd
+giveyoulcd
+idid
+i'm alive
+ledpm3
+multicmd + param?
+pctbat
+plan2shutdown
+presspm3
+restartpm3
+setbaklight + param?
+showpicture + param?
+showsimbol + param?
+showstring + param?
+shutdowning
+turnoffpm3
+turnonpm3
+version
+volbat
+volvcc
+```
+
 ## Wi-Fi
 
 One can add a USB-A female socket wired to the NanoPi NEO and use it to plug network adapters.
