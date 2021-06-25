@@ -44,7 +44,7 @@ $ st-flash read sram.bin 0x20000000 0x5000
 
 Thanks @gheilles and @virtualabs for the discussions and help on this part!
 
-Using attack [Exception(al) Failure - Breaking the STM32F1 Read-Out Protection](https://blog.zapb.de/stm32f1-exceptional-failure/), it's possible to extract about 85% of the firmware.
+Using attack [Exception(al) Failure - Breaking the STM32F1 Read-Out Protection](https://blog.zapb.de/stm32f1-exceptional-failure/), it's possible to extract about 89% of the firmware.
 
 * [flash_0x08000000_0x10000.bin](flash_0x08000000_0x10000.bin)
 * [flash_0x08000000_0x10000.bin.asm](flash_0x08000000_0x10000.bin.asm)
