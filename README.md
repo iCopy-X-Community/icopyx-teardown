@@ -68,7 +68,6 @@ It's quite a pity, because it could be a wonderful tool in the same vein as the 
 * Is the antenna LED drivable?
 * LED screen drivable by both STM32 and NanoPi?
 * Non-PC Mode: is there any usage of /dev/ttyACM0 when untied to ?
-* Try extraction of STM32 fw
 * Which FPGA is it?
 
 ## Desired changes

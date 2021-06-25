@@ -11,6 +11,7 @@ pin37|SWD CLK|header
 8,23,35,43,46|GND
 9,24,36,48|3v3
 todo|
+
 ## Protection
 
 In RDP1, SRAM readable via ST-Link/V2
@@ -38,3 +39,15 @@ $ st-flash read sram.bin 0x20000000 0x5000
 ```
 
 * [sram_0x20000000_0x5000.bin](sram_0x20000000_0x5000.bin)
+
+## Partial firmware dump
+
+Thanks @gheilles and @virtualabs for the discussions and help on this part!
+
+Using attack [Exception(al) Failure - Breaking the STM32F1 Read-Out Protection](https://blog.zapb.de/stm32f1-exceptional-failure/), it's possible to extract about 85% of the firmware.
+
+* [flash_0x08000000_0x10000.bin](flash_0x08000000_0x10000.bin)
+* [flash_0x08000000_0x10000.bin.asm](flash_0x08000000_0x10000.bin.asm)
+* [flash_0x08000000_0x10000.bin.c](flash_0x08000000_0x10000.bin.c)
+
+Note that by the nature of the attack, the firmware is not complete and some words are not extractible, so the asm and decompiled c are purely informative and are incomplete/wrong.
