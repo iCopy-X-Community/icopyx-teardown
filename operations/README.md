@@ -391,6 +391,8 @@ fillscreen + param?
 fillsquare + param?
 givemelcd
 giveyoulcd
+gotobl
+h3start
 idid
 i'm alive
 ledpm3
@@ -422,6 +424,13 @@ Tested with a RT2870 dongle.
 <img src="imgs/wifi_ssh.png" width=600 />
 
 See [here](https://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO#USB_WiFi) which Wi-Fi chipsets are working out of the box and how to use Network Manager from the command line.
+
+```
+nmcli dev
+nmcli dev wifi
+nmcli dev wifi connect "SSID" password "PASSWORD"
+# or: nmcli dev wifi connect "SSID" password "PASSWORD" ifname <wifi_interface_name>
+```
 
 Cheap USB-Ethernet dongles based on Realtek RTL8153 or ASIX AX88772A work fine too.
 
