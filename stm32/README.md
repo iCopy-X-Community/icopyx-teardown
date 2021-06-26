@@ -89,4 +89,8 @@ Read started!
 
 Using my [ElectronicColoringBook.py](https://doegox.github.io/ElectronicColoringBook/) on it reveals it contains the charging and booting screens (and probably animation):
 
+```
+./ElectronicColoringBook.py -c255 -b1 -x 480 -o 200 w25q80.bin
+```
+
 <img src="electroniccoloringbook.png" width=200 />
