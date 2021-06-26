@@ -51,3 +51,38 @@ Using attack [Exception(al) Failure - Breaking the STM32F1 Read-Out Protection](
 * [flash_0x08000000_0x10000.bin.c](flash_0x08000000_0x10000.bin.c)
 
 Note that by the nature of the attack, the firmware is not complete and some words are not extractible, so the asm and decompiled c are purely informative and are incomplete/wrong.
+
+The firmware contains strings like "W25QXX Error!", referring to some external EEPROM chip.
+
+## W25Q80
+
+So a closer look of the green PCB allowed to spot a "8C715" wired to STM32 SPI1 in a way matching W25Q chips:
+
+|W25Q|8C715|STM32|STM32 functions
+|-|-|-|-|
+|/cs|1|20|PB2
+|DO |2|16|PA6 = SPI1_MISO
+|/WP|3|22|PB11
+|GND|4|GND|
+|DI |5|17|PA7 = SPI1_MOSI
+|CLK|6|15|PA5 = SPI1_SCK
+|/H |7|22|PB11
+|Vcc|8|22|PB11
+
+
+@gator96100 identified it as a W25Q80BLUXIG 8Mbit.
+
+Wiring it in-place to a CH341a via some DIP8 breakout (skipping /H as it's wired to Vcc)
+
+```
+ch341prog -r w25q80.bin
+Device reported its revision [4.03]
+Manufacturer ID: ef
+Memory Type: 4014
+No CFI structure found, trying to get capacity from device ID. Set manually if detection fails.
+Capacity: 14
+Chip capacity is 1048576 bytes
+Read started!
+```
+
+* [w25q80.bin](w25q80.bin)

@@ -4,6 +4,7 @@ Some *ongoing* notes trying to understand what the iCopy-X is made of, what's th
 
 <img src="hardware/imgs/Website-Photo.png" width=300 /> => <img src="hardware/imgs/wild-test.jpg" width=300 />
 
+I want to warmly thank @gator96100 for sharing his own finding that are being merged over time in this repo as well!
 
 ## Official links
 
