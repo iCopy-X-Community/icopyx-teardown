@@ -94,3 +94,5 @@ Using my [ElectronicColoringBook.py](https://doegox.github.io/ElectronicColoring
 ```
 
 <img src="electroniccoloringbook.png" width=200 />
+
+Note that colors are randomly picked by my script, they don't reflect actual screen colors.
