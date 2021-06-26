@@ -90,9 +90,9 @@ Read started!
 Using my [ElectronicColoringBook.py](https://doegox.github.io/ElectronicColoringBook/) on it reveals it contains the charging and booting screens (and probably animation):
 
 ```
-./ElectronicColoringBook.py -c255 -b1 -x 480 -o 200 w25q80.bin
+./ElectronicColoringBook.py -c255 -b2 -x480 -o80 w25q80.bin
 ```
 
-<img src="electroniccoloringbook.png" width=200 />
+<img src="electroniccoloringbook.png" width=240 />
 
 Note that colors are randomly picked by my script, they don't reflect actual screen colors.
