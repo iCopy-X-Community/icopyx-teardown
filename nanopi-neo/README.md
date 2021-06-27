@@ -86,7 +86,15 @@ Resources:
 * https://github.com/friendlyarm/sd-fuse_h3
 * https://wiki.friendlyarm.com/wiki/index.php/How_to_use_overlayfs_on_Linux
 
-TODO what else
+### Consolidated view
+
+```
+apt install fuse-overlayfs
+mkdir -p /tmp/mnt
+sudo fuse-overlayfs -o ro -o upperdir=userdata/root -o lowerdir=rootfs -o workdir=userdata/work -o squash_to_uid=1000 -o squash_to_gid=1000 /tmp/mnt
+...
+fusermount -u /tmp/mnt
+```
 
 ### ICOPY-X partition
 
