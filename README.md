@@ -52,11 +52,17 @@ It's quite a pity, because it could be a wonderful tool in the same vein as the 
 
 ## [STM32](stm32/README.md)
 
+## [W25Q80](w25q80/README.md)
+
 ## [NanoPi NEO](nanopi-neo/README.md)
 
 ## [Software](software/README.md)
 
 ## [Operations](operations/README.md)
+
+## [STM32 commands](stm32_commands/README.md)
+
+## [Networking](networking/README.md)
 
 ## [Tags](tags/README.md)
 
