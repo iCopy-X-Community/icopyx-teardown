@@ -245,3 +245,13 @@ See [STM32 Commands](../stm32_commands/README.md)
 ## Networking
 
 We can add some network to the iCopy-X, see [Networking](../networking/README.md)
+
+## Rotated screen
+
+During operations it happened to us that the screen got rotated.
+
+<img src="imgs/rotated_screen.jpg" width=300 />
+
+The situation occurs when the NanoPi reboots without coordination with the STM32. E.g. a simple `sudo shutdown -r now` triggers it.
+
+To fix it, power off the device and unplug external USB-C power supply.

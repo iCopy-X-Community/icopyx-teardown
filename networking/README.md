@@ -40,3 +40,9 @@ nmcli dev wifi
 nmcli dev wifi connect "SSID" password "PASSWORD"
 # or: nmcli dev wifi connect "SSID" password "PASSWORD" ifname <wifi_interface_name>
 ```
+
+## Replacing NanoPi NEO by NanoPi NEO Air
+
+A more radical move done by @gator96100 is to replace entirely the NanoPi NEO by the Air version, embedding a Wi-Fi module.
+
+*Details will come soon*.

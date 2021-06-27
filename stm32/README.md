@@ -46,6 +46,44 @@ Thanks @gheilles and @virtualabs for the discussions and help on this part!
 
 Using attack [Exception(al) Failure - Breaking the STM32F1 Read-Out Protection](https://blog.zapb.de/stm32f1-exceptional-failure/), it's possible to extract about 89% of the firmware.
 
+To run the attack in-place, the iCopy-X needs to be powered, the JTAG probe is not sufficient. Therefore I modified https://gitlab.zapb.de/zapb/stm32f1-firmware-extractor to use soft resets.
+
+```diff
+diff --git a/main.py b/main.py
+--- a/main.py
++++ b/main.py
+@@ -73,7 +73,7 @@ UNDEF_INST_ADDR = 0x20000006
+ INACCESSIBLE_EXC_NUMBERS = [0, 1, 7, 8, 9, 10, 13]
+ 
+ def generate_exception(openocd, vt_address, exception_number):
+-    openocd.send('reset halt')
++    openocd.send('soft_reset_halt')
+ 
+     # Relocate vector table.
+     openocd.write_memory(VTOR_ADDR, [vt_address])
+@@ -161,6 +161,7 @@ def determine_num_ext_interrupts(openocd):
+ 
+     # The ARMv7-M architecture supports up to 496 external interrupts.
+     for i in range(0, 496):
++        openocd.send('soft_reset_halt')
+         openocd.send('reset init')
+ 
+         register_offset = (i // 32) * WORD_SIZE
+@@ -256,10 +257,10 @@ if __name__ == '__main__':
+             address, num_exceptions)
+ 
+         if address == 0x00000000:
+-            oocd.send('reset halt')
++            oocd.send('soft_reset_halt')
+             recovered_value = oocd.read_register(Register.SP)
+         elif address == 0x00000004:
+-            oocd.send('reset halt')
++            oocd.send('soft_reset_halt')
+             recovered_value = recover_pc(oocd)
+         elif exception_number in INACCESSIBLE_EXC_NUMBERS:
+             recovered_value = None
+```
+
 * [flash_0x08000000_0x10000.bin](flash_0x08000000_0x10000.bin)
 * [flash_0x08000000_0x10000.bin.asm](flash_0x08000000_0x10000.bin.asm)
 * [flash_0x08000000_0x10000.bin.c](flash_0x08000000_0x10000.bin.c)
