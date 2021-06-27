@@ -96,3 +96,59 @@ Using my [ElectronicColoringBook.py](https://doegox.github.io/ElectronicColoring
 <img src="electroniccoloringbook.png" width=240 />
 
 Note that colors are randomly picked by my script, they don't reflect actual screen colors.
+
+To extract the main two images:
+```
+dd if=w25q80.bin of=w25q80_batt.data bs=1 skip=$((0x2800)) count=$((240*240*2))
+dd if=w25q80.bin of=w25q80_logo.data bs=1 skip=$((0x222ae)) count=$((240*240*2))
+```
+
+They can be opened with Gimp (keep the `.data` extension!) as a 240x240 RGB565 Big Endian raw picture.
+
+<img src="w25q80_batt.png" /> <img src="w25q80_logo.png" />
+
+If you want to modify it in Gimp, export it as BMP / no color space info / 16 bit R5 G6 B5 then process it with this crude `bmp2data.py` script.
+
+```python
+#!/usr/bin/env python3
+
+import sys
+w=240
+data = open(sys.argv[1], "rb").read()
+# skip BMP header
+data=data[70:]
+# swap 16b words
+dataswap=b''
+for i in range(0, len(data), 2):
+    dataswap+=data[i+1:i+2]+data[i:i+1]
+# reorder lines
+datainv=b''
+for i in range(len(dataswap) - (2*w), 0, -(2*w)):
+    datainv+=dataswap[i:i+(2*w)]
+datainv+=dataswap[:2*w]
+open(sys.argv[2], "wb").write(datainv)
+```
+```
+python3 bmp2data.py w25q80_logo_patched.bmp w25q80_logo_patched.data
+```
+
+Note that we can directly convert a PNG to the expected RGB565 with Ffmpeg, but it introduces some artefacts: `ffmpeg -vcodec png -i w25q80_logo_patched.png -vcodec rawvideo -f rawvideo -pix_fmt rgb565be w25q80_logo_patched.data`
+
+Then reconstruct the EEPROM image. Here we modified the logo image.
+
+```
+cp w25q80.bin w25q80patched.bin
+dd if=w25q80_logo_patched.data of=w25q80patched.bin bs=1 seek=$((0x222ae)) conv=notrunc
+```
+
+And flash the EEPROM. For this part I had quite some difficulties to flash it in-place with a CH341A and https://github.com/setarcos/ch341prog
+```
+ch341prog -e
+ch341prog -w w25q80patched.bin
+```
+I had better success with Flashrom, but still after a few attempts:
+```
+/usr/sbin/flashrom -p ch341a_spi -c "W25Q80.V" -w w25q80patched.bin -V
+```
+
+<img src="w25q80_logo_patched.png" width=300 />
