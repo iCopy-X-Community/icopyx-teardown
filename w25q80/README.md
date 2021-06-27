@@ -40,24 +40,41 @@ Read started!
 Using my [ElectronicColoringBook.py](https://doegox.github.io/ElectronicColoringBook/) on it reveals it contains the charging and booting screens (and probably animation):
 
 ```
-./ElectronicColoringBook.py -c255 -b2 -x480 -o80 w25q80.bin
+./ElectronicColoringBook.py -c255 -b2 -p2 -x240 -o80 -S w25q80.bin
 ```
 
 <img src="electroniccoloringbook.png" width=240 />
 
 Note that colors are randomly picked by my script, they don't reflect actual screen colors.
 
+Memory map:
+```
+0x00000 392          ??
+0x00188              empty
+0x02800 240*240*2    charging
+0x1ea00 117*62*2     flash
+0x222ac 240*240*2    logo
+0x3e4ac 162*92*2     charged
+0x4591c 14?*63?*2*8? charging bars?
+0x4909c 15960        B&W 1b fonts (8 & 16px wide)
+0x4cef4              empty
+```
+
 ## Extracting images
 
-To extract the main two images:
+To extract the main data:
 ```
-dd if=w25q80.bin of=w25q80_batt.data bs=1 skip=$((0x2800)) count=$((240*240*2))
-dd if=w25q80.bin of=w25q80_logo.data bs=1 skip=$((0x222ae)) count=$((240*240*2))
+dd if=w25q80.bin of=w25q80_head.data bs=1 count=392
+dd if=w25q80.bin of=w25q80_charging.data bs=1 skip=$((0x2800)) count=$((240*240*2))
+dd if=w25q80.bin of=w25q80_flash.data bs=1 skip=$((0x1ea00)) count=$((117*62*2))
+dd if=w25q80.bin of=w25q80_logo.data bs=1 skip=$((0x222ac)) count=$((240*240*2))
+dd if=w25q80.bin of=w25q80_charged.data bs=1 skip=$((0x3e4ac)) count=$((162*92*2))
+dd if=w25q80.bin of=w25q80_font.data bs=1 skip=$((0x4909c)) count=15960
 ```
 
 They can be opened with Gimp (keep the `.data` extension!) as a 240x240 RGB565 Big Endian raw picture.
 
-<img src="w25q80_batt.png" /> <img src="w25q80_logo.png" />
+<img src="w25q80_charging.png" /> <img src="w25q80_logo.png" />
 
 ## Converting images back
 
@@ -92,7 +109,7 @@ Then reconstruct the EEPROM image. Here we modified the logo image.
 
 ```
 cp w25q80.bin w25q80patched.bin
-dd if=w25q80_logo_patched.data of=w25q80patched.bin bs=1 seek=$((0x222ae)) conv=notrunc
+dd if=w25q80_logo_patched.data of=w25q80patched.bin bs=1 seek=$((0x222ac)) conv=notrunc
 ```
 
 ## Flashing EEPROM
