@@ -273,39 +273,81 @@ lf t55xx detect
 
 MIFARE Classic 1k Gen1a / UID
 
-TODO
+First sector A & B keys are `E00000000000`. XS version doesn't verify that key.
+
+```
+hf 14a info
+hf mf cload b /mnt/upan/dump/mf1/M1-1K-4B_11223344_1.bin
+```
+
+Note that by default iCopy-X is also sending commands attempting to lock a UFUID, cf "M1-4b (L3)"
 
 ## M1-4b (L2)
 
 MIFARE Classic 1k Gen2 / CUID / DirectWrite
 
-TODO
+First sector A & B keys are `E00000000000`. XS version doesn't verify that key.
+
+```
+hf 14a info
+hf mf cgetblk 0
+hf mf fchk 1 /tmp/.keys/mf_tmp_keys
+hf mf rdbl 63 A ffffffffffff
+hf mf wrbl 60 A ffffffffffff 00000000000000000000000000000000
+hf mf wrbl 61 A ffffffffffff 00000000000000000000000000000000
+hf mf wrbl 62 A ffffffffffff 00000000000000000000000000000000
+hf mf wrbl 56 A ffffffffffff 00000000000000000000000000000000
+...
+hf mf wrbl 0 A e00000000000 A43498DED688040047C1252785001906
+hf mf wrbl 1 A e00000000000 140103E103E103E103E103E103E103E1
+hf mf wrbl 2 A e00000000000 03E103E103E103E103E103E103E103E1
+hf mf wrbl 63 A ffffffffffff D3F7D3F7D3F77F078840FFFFFFFFFFFF
+hf mf wrbl 59 A ffffffffffff D3F7D3F7D3F77F078840FFFFFFFFFFFF
+...
+hf mf wrbl 3 A e00000000000 A0A1A2A3A4A5787788C1FFFFFFFFFFFF
+```
 
 ## M1-4b (L3)
 
-MIFARE Classic 1k Gen2 / UFUID
+MIFARE Classic 1k Gen1a / UFUID
 
-Same as MIFARE Classic DirectWrite (L2), but block0 can be locked with special command.
+Same as MIFARE Classic Gen1a (L1), but block0 can be locked with special command.
 
-TODO
+First sector A & B keys are `E00000000000`. XS version doesn't verify that key.
+
+```
+hf mf cload b /mnt/upan/dump/mf1/M1-1K-4B_11223344_1.bin
+hf 14a raw -p -a -b 7 40
+hf 14a raw -p -a 43
+hf 14a raw -c -p -a e000
+hf 14a raw -c -p -a e100
+hf 14a raw -c -p -a 85000000000000000000000000000008
+hf 14a raw -c -a 5000
+```
 
 ## M1-7b
 
 MIFARE Classic 1k 7b-UID Gen2 / CUID / DirectWrite
 
-TODO
+All default keys.
+
+Usage: cf "M1-4b (L2)"
 
 ## M4-4b
 
 MIFARE Classic 4k Gen2 / CUID / DirectWrite
 
-TODO
+All default keys.
+
+Usage: cf "M1-4b (L2)"
 
 ## M4-7b
 
 MIFARE Classic 4k 7b-UID Gen2 / CUID / DirectWrite
 
-TODO
+All default keys.
+
+Usage: cf "M1-4b (L2)"
 
 ## NTAG
 
