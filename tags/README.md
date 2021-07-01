@@ -351,7 +351,93 @@ Usage: cf "M1-4b (L2)"
 
 ## NTAG
 
-TODO
+NTAG Gen3
+
+```
+[usb] pm3 --> hf mfu info
+
+[=] --- Tag Information --------------------------
+[=] -------------------------------------------------------------
+[+]       TYPE: NTAG 216 888bytes (NT2H1611G0DU) ( magic  )
+[+]        UID: 11 22 33 55 66 77 88 
+[+]     UID[0]: 11, Emosyn-EM Microelectronics USA
+      BCC0: 44, crc should be 88
+      BCC1: FF, crc should be CC
+[+]   Internal: FF (not default)
+[+]       Lock: FF FF  - //
+[+] OneTimePad: E1 10 6D 00  - @�0
+
+[=] --- NDEF Message
+[+] Capability Container: E1 10 6D 00 
+[+]   E1: NDEF Magic Number
+[+]   10: version 0.1 supported by tag
+[+]        : Read access granted without any security / Write access granted without any security
+[+]   6D: Physical Memory Size: 872 bytes
+[+]   6D: NDEF Memory Size: 872 bytes
+[+]   Additional feature information
+[+]   00
+[+]   00000000
+[+]   xxx      - 00: RFU (ok)
+[+]      x     - 00: don't support special frame
+[+]       x    - 00: don't support lock block
+[+]        xx  - 00: RFU (ok)
+[+]          x - 00: IC don't support multiple block reads
+
+[=] --- Tag Counter
+[=]        [02]: FF FF FF 
+[+]             - 00 tearing ( fail )
+
+[=] --- Tag Signature
+[=]     Elliptic curve parameters: NID_secp128r1
+[=]              TAG IC Signature: FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+[+]        Signature verification ( fail )
+
+[=] --- Tag Version
+[=]        Raw bytes: 00 04 04 02 01 00 13 03 
+[=]        Vendor ID: 04, NXP Semiconductors Germany
+[=]     Product type: 04, NTAG
+[=]  Product subtype: 02, 50pF
+[=]    Major version: 01
+[=]    Minor version: 00
+[=]             Size: 13, (1024 <-> 512 bytes)
+[=]    Protocol type: 03, ISO14443-3 Compliant
+
+[=] --- Tag Configuration
+[=]   cfg0 [227/0xE3]: 00 00 00 FF 
+[=]                     - strong modulation mode disabled
+[=]                     - pages don't need authentication
+[=]   cfg1 [228/0xE4]: 00 05 00 00 
+[=]                     - Unlimited password attempts
+[=]                     - NFC counter disabled
+[=]                     - NFC counter not protected
+[=]                     - user configuration writeable
+[=]                     - write access is protected with password
+[=]                     - 05, Virtual Card Type Identifier is default
+[=]   PWD  [229/0xE5]: FF FF FF FF - (cannot be read)
+[=]   PACK [230/0xE6]: FF FF       - (cannot be read)
+[=]   RFU  [230/0xE6]:       FF FF - (cannot be read)
+
+[+] --- Known EV1/NTAG passwords
+[+] Found default password FF FF FF FF  pack FF FF
+[=] ------------------------ Fingerprint -----------------------
+[=] Reading tag memory...
+[=] ------------------------------------------------------------
+```
+
+What it does when making a copy, here itself: (beware, old proxmark3 syntax)
+```
+hf 14a info
+hf mf cgetblk 0
+hf mfu info
+hf mfu dump f /mnt/upan/dump/mfu/NTAG216_11223355667788_1
+
+# swapping cards
+
+hf mfu restore s e f /mnt/upan/dump/mfu/NTAG216_11223355667788_1.bin
+[-] Failed convert on load to new Ultralight/NTAG format
+hf mf cgetblk 0
+
+```
 
 ## UL
 
@@ -359,7 +445,57 @@ TODO
 
 ## UL-C
 
-TODO
+```
+usb] pm3 --> hf mfu info
+
+[=] --- Tag Information --------------------------
+[=] -------------------------------------------------------------
+[+]       TYPE: MIFARE Ultralight C (MF0ULC)  
+[+]        UID: 00 00 00 00 00 00 00 
+[+]     UID[0]: 00, no tag-info available
+      BCC0: 00, crc should be 88
+[+]       BCC1: 00 (ok)
+[+]   Internal: 00 (not default)
+[+]       Lock: 00 00  - 00
+[+] OneTimePad: 00 00 00 00  - 0000
+
+--- UL-C Configuration
+ Higher Lockbits [40/0x28]: 00 00 00 00  - 00
+         Counter [41/0x29]: 00 00 00 00  - 00
+           Auth0 [42/0x2A]: 00 00 00 00  default
+           Auth1 [43/0x2B]: 00 00 00 00  read and write access restricted
+[=] Trying some default 3des keys
+[#] failed authentication
+[#] Authentication failed
+[+] Found default 3des key: 
+[=]     deskey1 [44/0x2C]: 00 00 00 00  [....]
+[=]     deskey1 [45/0x2D]: 00 00 00 00  [....]
+[=]     deskey2 [46/0x2E]: 00 00 00 00  [....]
+[=]     deskey2 [47/0x2F]: 00 00 00 00  [....]
+[=] 3des key: 00000000000000000000000000000000
+```
+
+What it does when making a copy, here itself: (beware, old proxmark3 syntax)
+```
+hf 14a info
+hf mf cgetblk 0
+hf mfu info
+hf mfu dump f /mnt/upan/dump/mfu/M0-UL-C_00000000000000_1
+
+# swapping cards
+
+hf mfu restore s e f /mnt/upan/dump/mfu/M0-UL-C_00000000000000_1.bin
+[-] Failed convert on load to new Ultralight/NTAG format
+```
+
+on another card:
+
+```
+hf mfu restore s e f /mnt/upan/dump/mfu/M0-UL-C_0430B001B02780_1.bin
+hf 14a info
+hf mf cgetblk 0
+hf mfu info
+```
 
 ## UL Ev1
 

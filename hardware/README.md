@@ -34,6 +34,29 @@ Open it from the top first.
 <img src="imgs/green-front1.png" width=300 /><img src="imgs/green-back.png" width=300 />
 <img src="imgs/green-front2.png" width=300 />
 
+## Manual BoM
+
+This is an ongoing short BoM of the ICs started from visual inspection of the PCBs.
+
+|Visual ID|Package|#Pins|Reference|Description|
+|-|-|-|-|-|
+|701|SOT-6|6|?|?|
+|8C7I5|USON2x3|8|W25Q80BLUXIG|Flash 8Mbit SPI|
+|A7|SOT23|3|BAV99|fast switching diode (2 diodes)|
+|BZS 18I A11L|?|6|TPS61170DRVR|1.2A Switch, High Voltage Boost Converter in 2x2mm QFN Package|
+|C55|SOT-23-6|6|OPA355NA| 2.5V, 200MHz GBW, CMOS Single Op Amp With Shutdown|
+|C7F DCK-6| SOT-23-6|6|SN74LVC2G17DCKR|Dual Schmitt-Trigger Buffer|
+|DL8a|SOT-25|5|XC9236B38DMR| PWM/PFM, step-down, 3.8V±2%, 600mA, 3MHz, Vin>2V, HSST, CL|
+|GS8722 TE29BA|MSOP8|8|GS8722|11MHZ CMOS Rail-to-Rail IO Opamps (2 opamps)|
+|IP5305|?|?|IP5305|Fully-integrated power bank System-On-Chip with 1.2A charger, 1.0A boost converter|
+|JS|SOD232|2|?| high voltage switching diode|
+|K318|BGA|?|Audio Amplifier Code Chip K318 for Redmi 4A Ringing IC Redmi NOTE 4X|
+|ODT|SC-70-5|5|TLV70012DCKT| 200mA, Low IQ, Low Dropout Regulator for Portables|
+|QTP|SC-70-5|5|TLV70025DCKT 200mA, Low IQ, Low Dropout Regulator for Portables|
+|RS2105 MS26102|MSOP-10|10|RS2105|Ultra Low ON-Resistance, Low Voltage, Dual, SPDT Analog Switch|
+|RS2299 QJ3D139|QFN-3x3-16L|16|RS2299|4.5Ω Quad SPDT Analog Switch 4-Channel 2:1 Multiplexer – Demultiplexer With Two Controls|
+|Y5510 78T A1JH|TSSOP24|24|TLC5510IPW| 8-Bit, 20 MSPS ADC Single Ch., Internal S&H, Low Power|
+|X1ZX 1S| ??||||
 ## Interconnections
 
 ### Green PCB <> NanoPi NEO
