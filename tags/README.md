@@ -351,7 +351,7 @@ Usage: cf "M1-4b (L2)"
 
 ## NTAG
 
-NTAG Gen3
+A NTAG21x
 
 ```
 [usb] pm3 --> hf mfu info
@@ -422,6 +422,21 @@ NTAG Gen3
 [=] ------------------------ Fingerprint -----------------------
 [=] Reading tag memory...
 [=] ------------------------------------------------------------
+
+[usb] pm3 --> script run hf_mfu_magicwrite -c
+[+] executing lua /home/usr/local/bin/../share/proxmark3/luascripts/hf_mfu_magicwrite.lua
+[+] args '-c'
+----------------------------------------	
+----------------------------------------	
+
+Magic NTAG 21* Configuration	
+ - Type    	NTAG 216	(genuine cardtype)	
+ - Password	FFFFFFFF	
+ - Pack    	0000	
+ - Version 	0004040201000F03	
+ - Signature	9739523E684347A7DB9B6B16CB61D4BAE6C7616AD529496DC68158F6FFB73404	
+
+[+] finished hf_mfu_magicwrite
 ```
 
 What it does when making a copy, here itself: (beware, old proxmark3 syntax)
@@ -441,12 +456,48 @@ hf mf cgetblk 0
 
 ## UL
 
-TODO
+```
+[usb] pm3 --> hf mfu info
+
+[=] --- Tag Information --------------------------
+[=] -------------------------------------------------------------
+[+]       TYPE: Unknown 000000  
+[+]        UID: 00 00 00 00 00 00 00 
+[+]     UID[0]: 00, no tag-info available
+      BCC0: 00, crc should be 88
+[+]       BCC1: 00 (ok)
+[+]   Internal: 00 (not default)
+[+]       Lock: 00 00  - 00
+[+] OneTimePad: 00 00 00 00  - 0000
+[=] ------------------------ Fingerprint -----------------------
+[=] Reading tag memory...
+[=] ------------------------------------------------------------
+```
+
+What it does when making a copy, here itself: (beware, old proxmark3 syntax)
+```
+hf 14a info
+hf mf cgetblk 0
+hf mfu info
+hf mfu dump f /mnt/upan/dump/mfu/M0-UL_00000000000000_1
+
+# swapping cards
+
+hf mfu restore s e f /mnt/upan/dump/mfu/M0-UL_00000000000000_1.bin
+[-] Failed convert on load to new Ultralight/NTAG format
+```
+
+on another card:
+
+```
+hf mfu restore s e f /mnt/upan/dump/mfu/M0-UL_044762415B2380_1.bin
+[!] failed to write block ...
+```
 
 ## UL-C
 
 ```
-usb] pm3 --> hf mfu info
+[usb] pm3 --> hf mfu info
 
 [=] --- Tag Information --------------------------
 [=] -------------------------------------------------------------
@@ -499,4 +550,21 @@ hf mfu info
 
 ## UL Ev1
 
-TODO
+A NTAG21x configured as UL Ev1
+
+```
+[usb] pm3 --> script run hf_mfu_magicwrite -c
+[+] executing lua /home/usr/local/bin/../share/proxmark3/luascripts/hf_mfu_magicwrite.lua
+[+] args '-c'
+----------------------------------------	
+----------------------------------------	
+
+Magic NTAG 21* Configuration	
+ - Type    	NTAG 213	(genuine cardtype)	
+ - Password	FFFFFFFF	
+ - Pack    	FFFF	
+ - Version 	0004030101000B03    (UL EV1 48b)
+ - Signature	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF	
+
+[+] finished hf_mfu_magicwrite
+```
