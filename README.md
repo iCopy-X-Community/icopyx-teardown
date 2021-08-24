@@ -17,11 +17,12 @@ Links mentioned in the documentation and in social networks
 * https://icopy-x.com/
   * https://www.icopy-x.com/warranty (not yet online as of 06/2021)
   * https://www.icopy-x.com/support (not yet online as of 06/2021)
-  * https://www.icopy-x.com/updates a form where you need to provide your serial number as apparently firmwares are diversified per device.
+  * https://www.icopy-x.com/updates a form where you need to provide your serial number as apparently firmwares are diversified per device. => https://www.icopy-x.com/otasys/
 * team@icopy-x.com    => product level
 * [Nikola T. Lab Youtube channel](https://www.youtube.com/channel/UCI0js55nP1E7nIMZNaQGqZQ)
 * [Nikola T. Lab on TikTok](https://www.tiktok.com/@nikolat.lab)
 * [Nikola T. Lab on Twitter](https://twitter.com/LabNikola)
+* [Nikola T. Lab on GitHub](https://github.com/Nikola-Lab)
 * https://www.nikola-lab.com/ (not yet online as of 06/2021)
   * https://nikola-lab.com/registration
 * team@nikola-lab.com => distributorship
