@@ -29,15 +29,16 @@ Links mentioned in the documentation and in social networks
 ## TL;DR
 
 ----
-**2021-07 UPDATE**
+**2021-08 UPDATE**
 
-Source of Proxmark3 and FGPA have been recently [released](https://github.com/iCopy-X-Community/icopyx-upstream) together with the electric schematics.
+Source of Hardware blueprints, schematics, STM32 firmware, Proxmark3 modifications and new FGPA support have been recently released.
+Parts are now merged in the official Proxmark3/RRG repo.
 
-Experiments on these sources are conducted in [separate repositories](https://github.com/iCopy-X-Community).
+See [all details here](https://github.com/iCopy-X-Community/icopyx-upstream).
 
-We're still missing the STM32 and the Python application details to be able to develop on the iCopy-X interface.
+We're still missing the Python application details to be able to develop on the iCopy-X interface.
 
-Most teardown observations predate the source release.
+Most teardown observations predate the source releases.
 
 ----
 
@@ -82,12 +83,11 @@ It contains an additional Python wrapper to provide a user interface with LCD an
 ## Open Questions
 
 * How firmwares are tied to serial numbers? cf version.so
-* Are cards really tied to icopy-x? If yes, how?
 * Is the antenna LED drivable?
 * LED screen drivable by both STM32 and NanoPi?
 * Non-PC Mode: is there any usage of /dev/ttyACM0 when untied to ?
 
 ## Desired changes
 
-* Open the source code of STM32 and most of the Python application such that it could be properly maintained up to date with the RRG/Iceman and its GUI maintained properly as well
+* Open most of the Python application such that it could be properly maintained up to date with the RRG/Iceman and its GUI maintained properly as well
 * Bind the UART-to-USB bridge to the Linux Debug console when in non-PC-Mode, it's much more convenient than using the inner UART1
