@@ -202,6 +202,71 @@ Xor div key......... 1E 1E 03 6C C9 5A 76 4E
 hf iclass wrbl -b 3 -d 1E1E036CC95A764E -k AFA785A7DAB33378
 ```
 
+## iCS
+
+An iClass Legacy locked with password `6666202066668888`
+
+```
+[usb] pm3 --> hf iclass rdbl -b 1 -k 6666202066668888
+
+[+]  block   1/0x01 : 12 FF FF FF 7F 1F FF 3C 
+
+[usb] pm3 --> hf iclass info
+
+[=] --------------------- Tag Information ----------------------
+[+]     CSN: 95 F0 6C 01 F9 FF 12 E0  uid
+[+]  Config: 12 FF FF FF 7F 1F FF 3C  card configuration
+[+] E-purse: FA FF FF FF FF FF FF FF  Card challenge, CC
+[+]      Kd: 00 00 00 00 00 00 00 00  debit key, hidden
+[+]      Kc: 00 00 00 00 00 00 00 00  credit key, hidden
+[+]     AIA: FF FF FF FF FF FF FF FF  application issuer area
+[=] -------------------- card configuration --------------------
+[=]     Raw: 12 FF FF FF 7F 1F FF 3C 
+[=]          12.....................  app limit
+[=]             FFFF ( 65535 )......  OTP
+[=]                   FF............  block write lock
+[=]                      7F.........  chip
+[=]                         1F......  mem
+[=]                            FF...  EAS
+[=]                               3C  fuses
+[=]   Fuses:
+[+]     mode......... Application (locked)
+[+]     coding....... ISO 14443-2 B / 15693
+[+]     crypt........ Secured page, keys not locked
+[=]     RA........... Read access not enabled
+[=] -------------------------- Memory --------------------------
+[=]  2 KBits/2 App Areas ( 256 bytes )
+[=]     AA1 blocks 13 { 0x06 - 0x12 (06 - 18) }
+[=]     AA2 blocks 18 { 0x13 - 0x1F (19 - 31) }
+[=] ------------------------- KeyAccess ------------------------
+[=]  * Kd, Debit key, AA1    Kc, Credit key, AA2 *
+[=]     Read A....... debit or credit
+[=]     Read B....... debit or credit
+[=]     Write A...... credit
+[=]     Write B...... credit
+[=]     Debit........ debit or credit
+[=]     Credit....... credit
+[=] ------------------------ Fingerprint -----------------------
+[+]     CSN.......... HID range
+[+]     Credential... iCLASS legacy
+[+]     Card type.... PicoPass 2K
+```
+
+To reuse an iCopy-X iCS, it must be set back to the initial key, e.g.
+
+```
+[usb] pm3 --> hf iclass calcnewkey --old AEA684A6DAB23278 --new 6666202066668888
+[+] CSN     E1 64 6D 01 F9 FF 12 E0 
+[+] epurse  FF FF FF FF FB FF FF FF 
+[+] Old div key......... 7B F6 4D 4C 5E 95 07 EA 
+[+] New div key......... 40 DD 85 E0 B5 A8 66 93 
+[+] Xor div key......... 3B 2B C8 AC EB 3D 61 79 
+
+[usb] pm3 --> hf iclass wrbl -b 3 -d 3B2BC8ACEB3D6179 -k AEA684A6DAB23278
+[+] Wrote block   3/0x03 successful
+```
+
+
 ## ICODE
 
 A magic ICODE card.
