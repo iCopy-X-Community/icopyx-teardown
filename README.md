@@ -30,6 +30,14 @@ Links mentioned in the documentation and in social networks
 ## TL;DR
 
 ----
+**2026-05 UPDATE**
+
+[@quantum-x](https://github.com/quantum-x) rewrote from scratch the missing pieces to get a [fully opensource stack for the icopy-x](https://github.com/lab-401/icopy-x)
+- Same functions as the original one (besides support for the external ICS decoder)
+- Jailbreak: it removes the need to compile a firmware linked to device serial number
+- It runs the latest Proxmark3 release
+
+----
 **2021-08 UPDATE**
 
 Source of Hardware blueprints, schematics, STM32 firmware, Proxmark3 modifications and new FGPA support have been recently released.
